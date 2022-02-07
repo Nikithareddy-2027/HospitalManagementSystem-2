@@ -1,0 +1,49 @@
+﻿@model IEnumerable<HMS.Entity.Models.Doctor>
+
+<div class="row">
+    <div class="col-12">
+        <h3>Doctor Registration History</h3>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Doctor Id</th>
+                    <th>Doctor Name</th>
+                    <th> Doctor Qualification</th>
+                    <th> Doctor Specilization</th>
+                    <th>Consult Fee </th>
+                    <th> Email</th>
+                    <th> Phone Number</th>
+                    <th>Password </th>
+                    <th> ReEnter Password</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+                @foreach (var doctor in Model)
+                {
+
+                    <tr>
+                        <td>@doctor.DoctorId</td>
+                        <td>@doctor.DoctorName</td>
+                        <td>@doctor.DoctorQualification</td>
+                        <td>@doctor.DoctorSpecialization</td>
+                        <td>@doctor.ConsultFee</td>
+                        <td>@doctor.Email</td>
+                        <td>@doctor.PhoneNumber</td>
+                        <td>@doctor.Password</td>
+                        <td>@doctor.ReEnterPassword</td>
+
+
+
+                        <td><a asp-controller="Doctor" asp-action="UpdateDoctor" asp-route-MovieId="@doctor.DoctorId">Update</a></td>
+                        <td><a asp-controller="Doctor" asp-action="DeleteDoctor" asp-route-MovieId="@doctor.DoctorId">Delete</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

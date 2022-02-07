@@ -1,0 +1,105 @@
+﻿@model HMS.Entity.Models.PatientReg
+
+@{
+    ViewData["Title"] = "AddPatient";
+}
+<form method="post" enctype="multipart/form-data">
+    <h1>Patient Registration</h1>
+</form>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddPatient">
+            <div class="form-group">
+                <label asp-for="PatientName" class="control-label"></label>
+                <input asp-for="PatientName" class="form-control" />
+                <span asp-validation-for="PatientName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdmissionDate" class="control-label"></label>
+                <input asp-for="AdmissionDate" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label"></label><br />
+                Male
+                @Html.RadioButtonFor(m => m.Gender, "Male")
+                Female
+                @Html.RadioButtonFor(m => m.Gender, "Female")
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BloodGroup" class="control-label"></label>
+                <input asp-for="BloodGroup" class="form-control" />
+                <span asp-validation-for="BloodGroup" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatientIssue" class="control-label"></label>
+                <input asp-for="PatientIssue" class="form-control" />
+                <span asp-validation-for="PatientIssue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PatientType   " class="control-label"></label><br />
+                IPD
+                @Html.RadioButtonFor(m => m.PatientType, "IPD")
+                OPD
+                @Html.RadioButtonFor(m => m.PatientType, "OPD")
+                <span asp-validation-for="PatientType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoctorName" class="control-label"></label>
+                <input asp-for="DoctorName" class="form-control" />
+                <span asp-validation-for="DoctorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoctorType" class="control-label"></label>
+                <input asp-for="DoctorType" class="form-control" />
+                <span asp-validation-for="DoctorType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WardNumber" class="control-label"></label>
+                <input asp-for="WardNumber" class="form-control" />
+                <span asp-validation-for="WardNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BedNumber" class="control-label"></label>
+                <input asp-for="BedNumber" class="form-control" />
+                <span asp-validation-for="BedNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+            @if (ViewBag.status == "Ok")
+            {
+                <div class="alert alert-success">
+                    @ViewBag.message
+                </div>
+            }
+            else if (ViewBag.status == "Error")
+            {
+                <div class="alert alert-danger">
+                    @ViewBag.message
+                </div>
+            }
+        </form>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
