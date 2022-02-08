@@ -9,7 +9,7 @@ namespace HMS.Entity.Models
     public class PatientReg
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+       // [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PatientId { get; set; }
         
         public virtual string PatientName { get; set; }

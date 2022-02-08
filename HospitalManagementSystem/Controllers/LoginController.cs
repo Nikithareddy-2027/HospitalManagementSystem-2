@@ -16,12 +16,12 @@ namespace HospitalManagementSystem.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TokenController : ControllerBase
+    public class LoginController : ControllerBase
     {
         public IConfiguration _configuration;
         private readonly HMSDbContext _context;
 
-        public TokenController(IConfiguration config, HMSDbContext context)
+        public LoginController(IConfiguration config, HMSDbContext context)
         {
             _configuration = config;
             _context = context;
@@ -33,7 +33,7 @@ namespace HospitalManagementSystem.Controllers
 
             if (_doctor != null && _doctor.Email != null && _doctor.Password != null)
             {
-                var user = await GetUser(_doctor.Email, _doctor.Password);
+                var user = await GetDoctors(_doctor.Email, _doctor.Password);
 
                 if (user != null)
                 {
@@ -69,7 +69,7 @@ namespace HospitalManagementSystem.Controllers
             }
         }
 
-        private async Task<Doctor> GetUser(string email, string password)
+        private async Task<Doctor> GetDoctors(string email, string password)
         {
             Doctor doctor = null;
             var result = _context.doctor.Where(u => u.Email == email && u.Password == password);

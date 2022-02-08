@@ -40,6 +40,8 @@ namespace HospitalManagementSystem
             services.AddTransient<DoctorServices, DoctorServices>();
             services.AddTransient<IEmployeeRepository, EmployeeRepository>();
             services.AddTransient<EmployeeServices, EmployeeServices>();
+            services.AddTransient<IReceptionRepository, ReceptionRepository>();
+            services.AddTransient<ReceptionServices, ReceptionServices>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {

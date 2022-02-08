@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 
 namespace HMS.UI.Controllers
 {
-    public class EmployeeRegController : Controller
+    public class EmployeeController : Controller
     {
         private IConfiguration _configuration;
-        public EmployeeRegController(IConfiguration configuration)
+        public EmployeeController(IConfiguration configuration)
         {
             _configuration = configuration;
         }

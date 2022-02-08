@@ -9,7 +9,7 @@ namespace HMS.Entity.Models
     public class Doctor
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+       // [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int DoctorId { get; set; }
         public virtual string DoctorName { get; set; }
         public string DoctorQualification { get; set; }

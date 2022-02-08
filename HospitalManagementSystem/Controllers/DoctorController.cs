@@ -42,7 +42,7 @@ namespace HospitalManagementSystem.Controllers
             return Ok(" Doctor successfully!!");
         }
         [HttpPost("Login")]
-        public IActionResult Login([FromBody] Doctor doctor)
+        public IActionResult LoginDoctor([FromBody] Doctor doctor)
         {
             Doctor user = _doctorServices.Login(doctor);
             if (user != null)

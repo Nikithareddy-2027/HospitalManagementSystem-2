@@ -1,0 +1,45 @@
+﻿@model IEnumerable<HMS.Entity.Models.Employee>
+
+<div class="row">
+    <div class="col-12">
+        <h3>Employee Registration History</h3>
+        <hr />
+        <table class="table table-light table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Employee Name</th>
+                    <th> Employee Role</th>
+                    <th> Email</th>
+                    <th> Phone Number</th>
+                    <th>Password </th>
+                    <th> ReEnter Password</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+                @foreach (var employee in Model)
+                {
+
+                    <tr>
+                        <td>@employee.EmployeeId</td>
+                        <td>@employee.EmployeeName</td>
+                        <td>@employee.EmployeeRole</td>
+                        <td>@employee.Email</td>
+                        <td>@employee.PhoneNumber</td>
+                        <td>@employee.Password</td>
+                        <td>@employee.ReEnterPassword</td>
+
+
+
+                        <td><a asp-controller="Employee" asp-action="UpdateEmployee" asp-route-MovieId="@employee.EmployeeId">Update</a></td>
+                        <td><a asp-controller="Employee" asp-action="DeleteEmployee" asp-route-MovieId="@employee.EmployeeId">Delete</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

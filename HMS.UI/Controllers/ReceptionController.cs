@@ -11,43 +11,42 @@ using System.Threading.Tasks;
 
 namespace HMS.UI.Controllers
 {
-    public class DoctorRegController : Controller
+    public class ReceptionController : Controller
     {
-        
         private IConfiguration _configuration;
-        public DoctorRegController(IConfiguration configuration)
+        public ReceptionController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
-        public async Task<IActionResult> DoctorIndex()
+        public async Task<IActionResult> ReceptionIndex()
         {
-            IEnumerable<Doctor> doctorresult = null;
+            IEnumerable<Reception> receptionresult = null;
             using (HttpClient client = new HttpClient())
             {
-                string endPoint = _configuration["WebApiBaseUrl"] + "Doctor/GetDoctors";
+                string endPoint = _configuration["WebApiBaseUrl"] + "Reception/GetAppointments";
                 using (var response = await client.GetAsync(endPoint))
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         var result = await response.Content.ReadAsStringAsync();
-                        doctorresult = JsonConvert.DeserializeObject<IEnumerable<Doctor>>(result);
+                        receptionresult = JsonConvert.DeserializeObject<IEnumerable<Reception>>(result);
                     }
                 }
             }
-            return View(doctorresult);
+            return View(receptionresult);
         }
-        public IActionResult AddDoctor()
+        public IActionResult AddAppointment()
         {
             return View();
         }
-        [HttpPost("AddDoctor")]
-        public async Task<IActionResult> AddDoctor(Doctor doctor)
+        [HttpPost("AddAppointment")]
+        public async Task<IActionResult> AddAppointment(Reception reception)
         {
             ViewBag.status = "";
             using (HttpClient client = new HttpClient())
             {
-                StringContent content = new StringContent(JsonConvert.SerializeObject(doctor), Encoding.UTF8, "application/json");
-                string endPoint = _configuration["WebApiBaseUrl"] + "Doctor/AddDoctor";
+                StringContent content = new StringContent(JsonConvert.SerializeObject(reception), Encoding.UTF8, "application/json");
+                string endPoint = _configuration["WebApiBaseUrl"] + "Reception/AddAppointment";
                 using (var response = await client.PostAsync(endPoint, content))
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
@@ -64,14 +63,14 @@ namespace HMS.UI.Controllers
             }
             return View();
         }
-        [HttpPost("EditDoctor")]
-        public async Task<IActionResult> EditDoctor(Doctor doctor)
+        [HttpPost("EditReception")]
+        public async Task<IActionResult> EditReception(Reception reception)
         {
             ViewBag.status = "";
             using (HttpClient client = new HttpClient())
             {
-                StringContent content = new StringContent(JsonConvert.SerializeObject(doctor), Encoding.UTF8, "application/json");
-                string endPoint = _configuration["WebApiBaseUrl"] + "Doctor/EditDoctor";
+                StringContent content = new StringContent(JsonConvert.SerializeObject(reception), Encoding.UTF8, "application/json");
+                string endPoint = _configuration["WebApiBaseUrl"] + "Reception/EditDoctor";
                 using (var response = await client.PostAsync(endPoint, content))
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
