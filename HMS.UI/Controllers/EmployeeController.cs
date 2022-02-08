@@ -63,5 +63,29 @@ namespace HMS.UI.Controllers
             }
             return View();
         }
+        [HttpPut("UpdateEmployee")]
+        public async Task<IActionResult> UpdateEmployee(Employee employee)
+        {
+            ViewBag.status = "";
+            using (HttpClient client = new HttpClient())
+            {
+                StringContent content = new StringContent(JsonConvert.SerializeObject(employee), Encoding.UTF8, "application/json");
+                string endPoint = _configuration["WebApiBaseUrl"] + "Doctor/UpdateEmployee";
+                using (var response = await client.PostAsync(endPoint, content))
+                {
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        ViewBag.status = "Ok";
+                        ViewBag.message = "  Doctor details edited successfully!";
+                    }
+                    else
+                    {
+                        ViewBag.status = "Error";
+                        ViewBag.message = "Wrong entries!";
+                    }
+                }
+            }
+            return View();
+        }
     }
 }

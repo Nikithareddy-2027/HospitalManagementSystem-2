@@ -6,12 +6,34 @@
     <title>@ViewData["Title"] - Hospital Management System</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        .dropbtn {
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+    </style>
 </head>
 <body>
     <header>
+        <div style="
+          background-image: url('https://mdbootstrap.com/img/new/standard/city/041.jpg');
+          height: 50px;
+         "></div>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Hospital Management System</a>
+            <div class="container-fluid">
+                <a class="navbar-brand align-content-lg-start" asp-area="" asp-controller="Home" asp-action="Index">Hospital Management System</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -19,7 +41,8 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Patient" asp-action="AddPatient">Patient Registration</a>
+                            @*<a class="nav-link text-light" asp-area="" asp-controller="Patient" asp-action="AddPatient">Patient Registration</a>*@
+                            <a class="nav-link text-light" href="/Patient/AddPatient">Patient</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -31,16 +54,30 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="home" asp-action="Index">Reception</a>
+                            @*<a class="nav-link text-light" asp-area="" asp-controller="Patient" asp-action="AddPatient">Patient Registration</a>*@
+                            <a class="nav-link text-light" href="/Reception/AddAppointment">Patient Appointment</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Pharmacy</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Reception
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/Reception/ReceptionIndex">Patient Appointment Details</a>
+                                <a class="dropdown-item" href="/Doctor/DoctorIndex">Doctor Enquiry</a>
+                                <a class="dropdown-item" href="/Employee/EmployeeIndex">Employee Enquiry</a>
+                                <a class="dropdown-item" href="/Patient/Index">Patient Enquiry</a>
+
+                            </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Laboratory</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Login" asp-action="LoginDoctor">Login</a>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Login
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/Login/DoctorLogin">Doctor Login</a>
+
+                            </div>
                         </li>
                     </ul>
                 </div>

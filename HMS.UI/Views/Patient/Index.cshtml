@@ -1,6 +1,5 @@
 ﻿@model IEnumerable<HMS.Entity.Models.PatientReg>
-if(PatientReg.count>0)
-{
+
 <div class="row">
     <div class="col-12">
         <h3>Patient Registration History</h3>
@@ -22,8 +21,7 @@ if(PatientReg.count>0)
                     <th> Doctor Type</th>
                     <th>Ward Number </th>
                     <th> Bed Number</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -49,16 +47,11 @@ if(PatientReg.count>0)
                         <td>@patient.BedNumber</td>
 
 
-                        <td><a asp-controller="Patient" asp-action="UpdatePatient" asp-route-MovieId="@patient.PatientId">Update</a></td>
-                        <td><a asp-controller="Patient" asp-action="DeletePatient" asp-route-MovieId="@patient.PatientId">Delete</a></td>
+                        
                     </tr>
                  }
             </tbody>
         </table>
     </div>
 </div>
-}
-else
-{
-   "Error";
-}
+

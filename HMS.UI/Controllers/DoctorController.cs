@@ -64,14 +64,14 @@ namespace HMS.UI.Controllers
             }
             return View();
         }
-        [HttpPost("EditDoctor")]
-        public async Task<IActionResult> EditDoctor(Doctor doctor)
+        [HttpPut("UpdateDoctor")]
+        public async Task<IActionResult> UpdateDoctor(Doctor doctor)
         {
             ViewBag.status = "";
             using (HttpClient client = new HttpClient())
             {
                 StringContent content = new StringContent(JsonConvert.SerializeObject(doctor), Encoding.UTF8, "application/json");
-                string endPoint = _configuration["WebApiBaseUrl"] + "Doctor/EditDoctor";
+                string endPoint = _configuration["WebApiBaseUrl"] + "Doctor/UpdateDoctor";
                 using (var response = await client.PostAsync(endPoint, content))
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)

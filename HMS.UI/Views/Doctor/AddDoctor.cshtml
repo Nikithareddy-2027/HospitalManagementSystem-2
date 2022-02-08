@@ -13,64 +13,73 @@
         <form asp-action="AddDoctor">
             <div class="form-group">
                 <label asp-for="DoctorName" class="control-label"></label>
-                <input asp-for="DoctorName" class="form-control" />
-                <span asp-validation-for="DoctorName" class="text-danger"></span>
+                <input asp-for="DoctorName" class="form-control" id="validationTooltip01" value="" required />
+                <div class="valid-tooltip">
+                    Looks good!
+                </div>
             </div>
             <div class="form-group">
                 <label asp-for="DoctorQualification" class="control-label"></label>
-                <input asp-for="DoctorQualification" class="form-control" />
-
-            </div>
-            <div class="form-group">
-                <label asp-for="DoctorSpecialization" class="control-label"></label>
-                <input asp-for="DoctorSpecialization" class="form-control" />
-                <span asp-validation-for="DoctorSpecialization" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="ConsultFee" class="control-label"></label>
-                <input asp-for="ConsultFee" class="form-control" />
-                <span asp-validation-for="ConsultFee" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhoneNumber" class="control-label"></label>
-                <input asp-for="PhoneNumber" class="form-control" />
-                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ReEnterPassword" class="control-label"></label>
-                <input asp-for="ReEnterPassword" class="form-control" />
-                <span asp-validation-for="ReEnterPassword" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-            @if (ViewBag.status == "Ok")
-            {
-                <div class="alert alert-success">
-                    @ViewBag.message
+                <input asp-for="DoctorQualification" class="form-control" id="validationTooltip01" value="" required />
+                <div class="valid-tooltip">
+                    Looks good!
                 </div>
-            }
-            else if (ViewBag.status == "Error")
-            {
-                <div class="alert alert-danger">
-                    @ViewBag.message
+            </div>
+                <div class="form-group">
+                    <label asp-for="DoctorSpecialization" class="control-label"></label>
+                    <input asp-for="DoctorSpecialization" class="form-control" id="validationTooltip01" value="" required />
+                    <span asp-validation-for="DoctorSpecialization" class="text-danger"></span>
                 </div>
-            }
-        </form>
+
+                <div class="form-group">
+                    <label asp-for="ConsultFee" class="control-label"></label>
+                    <input asp-for="ConsultFee" class="form-control" id="validationTooltip01" value="" required />
+                    <span asp-validation-for="ConsultFee" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" placeholder="name@example.com" id="validationTooltip01" value="" required>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PhoneNumber" class="control-label"></label>
+                    <input asp-for="PhoneNumber" class="form-control" id="validationTooltip01" value="" required />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control" id="validationTooltipPassword" aria-describedby="validationTooltipPassword" required />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                    <div class="invalid-tooltip">
+                        Please choose a unique and valid Password.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="validationTooltip04"
+                           asp-for="ReEnterPassword"class="control-label"></label>
+                    <input asp-for="ReEnterPassword" class="form-control"  id="validationTooltip01" value="" required/>
+                    <span asp-validation-for="ReEnterPassword" class="text-danger"></span>
+                    <div class="invalid-tooltip">
+                        Password is not matching.
+                    </div>
+                </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-success" />
+                    </div>
+                    @if (ViewBag.status == "Ok")
+                    {
+                        <div class="alert alert-success">
+                            @ViewBag.message
+                        </div>
+                    }
+                    else if (ViewBag.status == "Error")
+                    {
+                        <div class="alert alert-danger">
+                            @ViewBag.message
+                        </div>
+                    }
+</form>
     </div>
 </div>
-<div>
-    <a asp-action="DoctorIndex">Back to List</a>
-</div>
+
 

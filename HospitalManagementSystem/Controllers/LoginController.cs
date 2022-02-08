@@ -27,8 +27,8 @@ namespace HospitalManagementSystem.Controllers
             _context = context;
         }
 
-        [HttpPost("Login")]
-        public async Task<IActionResult> Post(Doctor _doctor)
+        [HttpPost("DoctorLogin")]
+        public async Task<IActionResult> DoctorLogin(Doctor _doctor)
         {
 
             if (_doctor != null && _doctor.Email != null && _doctor.Password != null)

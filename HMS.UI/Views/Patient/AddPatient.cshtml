@@ -13,17 +13,17 @@
         <form asp-action="AddPatient">
             <div class="form-group">
                 <label asp-for="PatientName" class="control-label"></label>
-                <input asp-for="PatientName" class="form-control" />
+                <input asp-for="PatientName" class="form-control" id="validationTooltip01" value="" required/>
                 <span asp-validation-for="PatientName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="AdmissionDate" class="control-label"></label>
-                <input asp-for="AdmissionDate" class="form-control" />
+                <input asp-for="AdmissionDate" class="form-control" id="validationTooltip01" value="" required/>
 
             </div>
             <div class="form-group">
                 <label asp-for="Age" class="control-label"></label>
-                <input asp-for="Age" class="form-control" />
+                <input asp-for="Age" class="form-control" id="validationTooltip01" value="" required/>
                 <span asp-validation-for="Age" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -36,22 +36,22 @@
             </div>
             <div class="form-group">
                 <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
+                <input asp-for="Address" class="form-control" id="validationTooltip01" value="" required/>
                 <span asp-validation-for="Address" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PhoneNumber" class="control-label"></label>
-                <input asp-for="PhoneNumber" class="form-control" />
+                <input asp-for="PhoneNumber" class="form-control" id="validationTooltip01" value="" required />
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="BloodGroup" class="control-label"></label>
-                <input asp-for="BloodGroup" class="form-control" />
+                <input asp-for="BloodGroup" class="form-control" id="validationTooltip01" value="" required/>
                 <span asp-validation-for="BloodGroup" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="PatientIssue" class="control-label"></label>
-                <input asp-for="PatientIssue" class="form-control" />
+                <input asp-for="PatientIssue" class="form-control" id="validationTooltip01" value="" required/>
                 <span asp-validation-for="PatientIssue" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -64,26 +64,26 @@
             </div>
             <div class="form-group">
                 <label asp-for="DoctorName" class="control-label"></label>
-                <input asp-for="DoctorName" class="form-control" />
+                <input asp-for="DoctorName" class="form-control" id="validationTooltip01" value="" required/>
                 <span asp-validation-for="DoctorName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="DoctorType" class="control-label"></label>
-                <input asp-for="DoctorType" class="form-control" />
+                <input asp-for="DoctorType" class="form-control" id="validationTooltip01" value="" required/>
                 <span asp-validation-for="DoctorType" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="WardNumber" class="control-label"></label>
-                <input asp-for="WardNumber" class="form-control" />
+                <input asp-for="WardNumber" class="form-control" id="validationTooltip01" value="" required/>
                 <span asp-validation-for="WardNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="BedNumber" class="control-label"></label>
-                <input asp-for="BedNumber" class="form-control" />
+                <input asp-for="BedNumber" class="form-control" id="validationTooltip01" value="" required/>
                 <span asp-validation-for="BedNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-success" />
             </div>
             @if (ViewBag.status == "Ok")
             {
@@ -100,6 +100,4 @@
         </form>
     </div>
 </div>
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+

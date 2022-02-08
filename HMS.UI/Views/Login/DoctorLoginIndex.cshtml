@@ -16,7 +16,8 @@
                     <th> Phone Number</th>
                     <th>Password </th>
                     <th> ReEnter Password</th>
-                    
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,6 +36,11 @@
                         <td>@doctor.PhoneNumber</td>
                         <td>@doctor.Password</td>
                         <td>@doctor.ReEnterPassword</td>
+
+
+
+                        <td><a asp-controller="Doctor" asp-action="UpdateDoctor" asp-route-MovieId="@doctor.DoctorId">Update</a></td>
+                        <td><a asp-controller="Doctor" asp-action="DeleteDoctor" asp-route-MovieId="@doctor.DoctorId">Delete</a></td>
                     </tr>
                 }
             </tbody>

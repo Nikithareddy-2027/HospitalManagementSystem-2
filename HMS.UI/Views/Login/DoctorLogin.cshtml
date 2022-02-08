@@ -1,0 +1,46 @@
+﻿@model HMS.Entity.Models.Doctor
+
+@{
+    ViewData["Title"] = "DoctorLogin";
+}
+<form method="post" enctype="multipart/form-data">
+    <h1>Doctor Login</h1>
+</form>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="DoctorLogin">
+
+            <form class="row g-3">
+                <div class="col-auto">
+                    <label for="staticEmail2" class="visually-hidden">Email</label>
+                    <input type="text" class="form-control" value="">
+                </div>
+                <div class="col-auto">
+                    <label for="inputPassword2" class="visually-hidden">Password</label>
+                    <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+                </div>
+                <div class="col-auto">
+
+                    <button type="submit" class="btn btn-success">Confirm identity</button>
+                </div>
+            </form>
+            @if (ViewBag.status == "Ok")
+            {
+                <div class="alert alert-success">
+                    @ViewBag.message
+                </div>
+            }
+            else if (ViewBag.status == "Error")
+            {
+                <div class="alert alert-danger">
+                    @ViewBag.message
+                </div>
+            }
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="AddDoctor">Register</a>
+</div>
