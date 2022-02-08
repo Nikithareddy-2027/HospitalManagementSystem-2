@@ -32,8 +32,10 @@ namespace HMS.BAL.Services
         public IEnumerable<Doctor> GetDoctors()
         {
             return _doctorRepository.GetDoctors();
-
-
+        }
+        public Doctor Login(Doctor doctor)
+        {
+            return _doctorRepository.Login(doctor);
         }
     }
 }

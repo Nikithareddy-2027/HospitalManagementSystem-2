@@ -143,8 +143,8 @@ namespace HMS.DAL.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("DoctorId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("DoctorId")
+                        .HasColumnType("int");
 
                     b.Property<int?>("DoctorsDoctorId")
                         .HasColumnType("int");
@@ -158,10 +158,7 @@ namespace HMS.DAL.Migrations
                     b.Property<string>("MedicineTime")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("PatientId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("PatientRegsPatientId")
+                    b.Property<int>("PatientId")
                         .HasColumnType("int");
 
                     b.Property<bool>("pharmacyStock")
@@ -169,26 +166,38 @@ namespace HMS.DAL.Migrations
 
                     b.HasKey("MedicineId");
 
+                    b.HasIndex("DoctorId");
+
                     b.HasIndex("DoctorsDoctorId");
 
-                    b.HasIndex("PatientRegsPatientId");
+                    b.HasIndex("PatientId");
 
                     b.ToTable("pharmacy");
                 });
 
             modelBuilder.Entity("HMS.Entity.Models.Pharmacy", b =>
                 {
+                    b.HasOne("HMS.Entity.Models.Doctor", "doctor")
+                        .WithMany()
+                        .HasForeignKey("DoctorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("HMS.Entity.Models.Doctor", "Doctors")
                         .WithMany()
                         .HasForeignKey("DoctorsDoctorId");
 
-                    b.HasOne("HMS.Entity.Models.PatientReg", "PatientRegs")
+                    b.HasOne("HMS.Entity.Models.PatientReg", "patientRegs")
                         .WithMany()
-                        .HasForeignKey("PatientRegsPatientId");
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("doctor");
 
                     b.Navigation("Doctors");
 
-                    b.Navigation("PatientRegs");
+                    b.Navigation("patientRegs");
                 });
 #pragma warning restore 612, 618
         }

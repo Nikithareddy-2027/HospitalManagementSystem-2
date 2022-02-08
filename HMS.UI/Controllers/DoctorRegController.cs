@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace HMS.UI.Controllers
 {
-    public class DoctorController : Controller
+    public class DoctorRegController : Controller
     {
         
         private IConfiguration _configuration;
-        public DoctorController(IConfiguration configuration)
+        public DoctorRegController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
@@ -54,6 +54,30 @@ namespace HMS.UI.Controllers
                     {
                         ViewBag.status = "Ok";
                         ViewBag.message = "  Doctor details saved successfully!";
+                    }
+                    else
+                    {
+                        ViewBag.status = "Error";
+                        ViewBag.message = "Wrong entries!";
+                    }
+                }
+            }
+            return View();
+        }
+        [HttpPost("EditDoctor")]
+        public async Task<IActionResult> EditDoctor(Doctor doctor)
+        {
+            ViewBag.status = "";
+            using (HttpClient client = new HttpClient())
+            {
+                StringContent content = new StringContent(JsonConvert.SerializeObject(doctor), Encoding.UTF8, "application/json");
+                string endPoint = _configuration["WebApiBaseUrl"] + "Doctor/EditDoctor";
+                using (var response = await client.PostAsync(endPoint, content))
+                {
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        ViewBag.status = "Ok";
+                        ViewBag.message = "  Doctor details edited successfully!";
                     }
                     else
                     {

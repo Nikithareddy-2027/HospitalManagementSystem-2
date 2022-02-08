@@ -12,5 +12,6 @@ namespace HMS.DAL.Repository
         void DeleteDoctor(int DoctorId);
         Doctor GetDoctorById(int DoctorId);
         IEnumerable<Doctor> GetDoctors();
+        Doctor Login(Doctor doctor);
     }
 }

@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace HMS.UI.Controllers
 {
-    public class PatientController : Controller
+    public class PatientRegController : Controller
     {
         
         private IConfiguration _configuration;
-        public PatientController(IConfiguration configuration)
+        public PatientRegController(IConfiguration configuration)
         {
             _configuration = configuration;
         }

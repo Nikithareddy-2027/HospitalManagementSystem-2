@@ -2,7 +2,7 @@
 
 namespace HMS.DAL.Migrations
 {
-    public partial class moo : Migration
+    public partial class updated1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
